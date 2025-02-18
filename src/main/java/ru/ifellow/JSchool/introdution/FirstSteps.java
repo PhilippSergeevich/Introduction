@@ -27,10 +27,7 @@ public class FirstSteps {
     }
 
     public boolean isInsideRect(int xLeft, int yTop, int xRight, int yBottom, int x, int y) {
-        if (x < xLeft || x > xRight || y < yTop || y > yBottom) {
-            return false;
-        }
-        return true;
+        return x < xLeft || x > xRight || y < yTop || y > yBottom;
     }
 
 
@@ -39,8 +36,8 @@ public class FirstSteps {
             return 0;
         }
         int sum = 0;
-        for (int i = 0; i < array.length; i++) {
-            sum += array[i];
+        for (Integer i : array) {
+            sum = sum(array[i], sum);
         }
         return sum;
     }
@@ -51,8 +48,8 @@ public class FirstSteps {
             return 0;
         }
         int mul = 1;
-        for (int i = 0; i < array.length; i++) {
-            mul *= array[i];
+        for (Integer i : array) {
+            mul = mul(array[i], mul);
         }
         return mul;
     }
@@ -63,7 +60,7 @@ public class FirstSteps {
         if (array == null) {
             return min;
         }
-        for (int i = 0; i < array.length; i++) {
+        for (Integer i : array) {
             if (array[i] < min) {
                 min = array[i];
             }
@@ -76,7 +73,7 @@ public class FirstSteps {
         if (array == null) {
             return max;
         }
-        for (int i = 0; i < array.length; i++) {
+        for (Integer i : array) {
             if (array[i] > max) {
                 max = array[i];
             }
@@ -89,7 +86,7 @@ public class FirstSteps {
         if (array == null) {
             return average;
         }
-        for (int i = 0; i < array.length; i++) {
+        for (Integer i : array) {
             average += array[i];
         }
         return average / array.length;
@@ -114,7 +111,7 @@ public class FirstSteps {
     }
 
     public boolean find(int[] array, int value) {
-        for (int i = 0; i < array.length; i++) {
+        for (Integer i : array) {
             if (array[i] == value) {
                 return true;
             }
@@ -150,7 +147,7 @@ public class FirstSteps {
         }
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
-                sum += matrix[i][j];
+                sum = sum(sum, matrix[i][j]);
             }
         }
         return sum;
