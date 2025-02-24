@@ -27,9 +27,8 @@ public class FirstSteps {
     }
 
     public boolean isInsideRect(int xLeft, int yTop, int xRight, int yBottom, int x, int y) {
-        return x < xLeft || x > xRight || y < yTop || y > yBottom;
+        return x >= xLeft && x <= xRight && y >= yTop && y <= yBottom;
     }
-
 
     public int sum(int[] array) {
         if (array == null) {
@@ -37,7 +36,7 @@ public class FirstSteps {
         }
         int sum = 0;
         for (Integer i : array) {
-            sum = sum(array[i], sum);
+            sum = sum(i, sum);
         }
         return sum;
     }
@@ -49,33 +48,33 @@ public class FirstSteps {
         }
         int mul = 1;
         for (Integer i : array) {
-            mul = mul(array[i], mul);
+            mul = mul(i, mul);
         }
         return mul;
     }
 
 
     public int min(int[] array) {
-        int min = Integer.MAX_VALUE;
-        if (array == null) {
-            return min;
+        if (array == null || array.length == 0) {
+            return Integer.MAX_VALUE;
         }
-        for (Integer i : array) {
-            if (array[i] < min) {
-                min = array[i];
+        int min = array[0];
+        for (int i : array) {
+            if (i < min) {
+                min = i;
             }
         }
         return min;
     }
 
     public int max(int[] array) {
-        int max = Integer.MIN_VALUE;
-        if (array == null) {
-            return max;
+        if (array == null || array.length == 0) {
+            return Integer.MIN_VALUE;
         }
-        for (Integer i : array) {
-            if (array[i] > max) {
-                max = array[i];
+        int max = array[0];
+        for (int i : array) {
+            if (i > max) {
+                max = i;
             }
         }
         return max;
@@ -86,7 +85,7 @@ public class FirstSteps {
         if (array == null) {
             return average;
         }
-        for (Integer i : array) {
+        for (int i = 0; i < array.length; i++) {
             average += array[i];
         }
         return average / array.length;
@@ -111,7 +110,7 @@ public class FirstSteps {
     }
 
     public boolean find(int[] array, int value) {
-        for (Integer i : array) {
+        for (int i = 0; i < array.length; i++) {
             if (array[i] == value) {
                 return true;
             }
