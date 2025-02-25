@@ -43,7 +43,7 @@ public class FirstSteps {
 
 
     public int mul(int[] array) {
-        if (array == null) {
+        if (array == null || array.length == 0) {
             return 0;
         }
         int mul = 1;
@@ -82,7 +82,7 @@ public class FirstSteps {
 
     public double average(int[] array) {
         double average = 0;
-        if (array == null) {
+        if (array == null || array.length == 0) {
             return average;
         }
         for (int i = 0; i < array.length; i++) {
