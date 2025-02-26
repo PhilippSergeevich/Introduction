@@ -47,8 +47,8 @@ public class FirstSteps {
             return 0;
         }
         int mul = 1;
-        for (Integer i : array) {
-            mul = mul(i, mul);
+        for (int i : array) {
+            mul *= i;
         }
         return mul;
     }
@@ -81,14 +81,10 @@ public class FirstSteps {
     }
 
     public double average(int[] array) {
-        double average = 0;
         if (array == null || array.length == 0) {
-            return average;
+            return 0;
         }
-        for (int i = 0; i < array.length; i++) {
-            average += array[i];
-        }
-        return average / array.length;
+       return (double) sum(array) / array.length;
     }
 
     public boolean isSortedDescendant(int[] array) {
